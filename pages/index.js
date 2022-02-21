@@ -4,7 +4,7 @@ import Link from "next/link"
 export default function Home({ todos, pageTitle }) {
   return (
     <div>
-      <h1>{pageTitle}</h1>
+      <h1>Batata {pageTitle}</h1>
       
       {todos.map(todo => (
         <Link href={`/todos/${todo.id}`} key={todo.id} passHref>
