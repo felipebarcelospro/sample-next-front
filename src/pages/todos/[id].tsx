@@ -1,6 +1,6 @@
 import axios from "axios"
 import { GetStaticPaths, GetStaticProps } from "next"
-import { api } from "../services/api"
+import { api } from "../../services/api"
 
 export type ITodoResponse = {
   userId: number
@@ -54,7 +54,7 @@ export const getStaticProps:GetStaticProps<ITodoPageProps> = async (ctx) => {
   try {
     const { id } = ctx.params
 
-    const res = await axios.get(`http://localhost:3333/todos/${id}`)
+    const res = await api.get(`/todos/${id}`)
     const todoResponse = res.data
 
     return {

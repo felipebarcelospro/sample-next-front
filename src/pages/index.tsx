@@ -4,7 +4,7 @@ import Link from "next/link"
 import { GetServerSideProps } from "next"
 import { useState } from "react"
 import { ITodo, ITodoResponse } from "./todos/[id]"
-import { api } from "./services/api"
+import { api } from "../services/api"
 
 type IHomePageProps = {
   todos: ITodo[]
