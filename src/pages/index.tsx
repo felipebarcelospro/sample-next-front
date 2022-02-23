@@ -36,7 +36,7 @@ export default function Home({ todos, pageTitle }: IHomePageProps) {
   }
 
   const handleCreateTodo = async (data: IHandleCreateTodoDTO): Promise<ITodo> => {
-    const res = await axios.post<ITodoResponse>('http://localhost:3333/todos', data)
+    const res = await api.post<ITodoResponse>('/todos', data)
     const todo = res.data
 
     return {
