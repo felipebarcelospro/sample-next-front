@@ -4,6 +4,7 @@ import Link from "next/link"
 import { GetServerSideProps } from "next"
 import { useState } from "react"
 import { ITodo, ITodoResponse } from "./todos/[id]"
+import { api } from "./services/api"
 
 type IHomePageProps = {
   todos: ITodo[]
@@ -64,7 +65,7 @@ export default function Home({ todos, pageTitle }: IHomePageProps) {
 }
 
 export const getServerSideProps: GetServerSideProps<IHomePageProps> = async (ctx) => {
-  const res = await axios.get<ITodoResponse[]>('http://localhost:3333/todos')
+  const res = await api.get<ITodoResponse[]>('/todos')
   const todos = res.data
 
   return {

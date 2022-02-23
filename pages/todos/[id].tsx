@@ -1,5 +1,6 @@
 import axios from "axios"
 import { GetStaticPaths, GetStaticProps } from "next"
+import { api } from "../services/api"
 
 export type ITodoResponse = {
   id: number
@@ -33,7 +34,7 @@ export default function SingleTodo({ todo, pageTitle }: ITodoPageProps) {
 }
 
 export const getStaticPaths:GetStaticPaths = async () => {
-  const res = await axios.get<ITodoResponse[]>('https://jsonplaceholder.typicode.com/todos')
+  const res = await api.get<ITodoResponse[]>('/todos')
   const todos = res.data
 
   const paths = todos.map(todo => {
