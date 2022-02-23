@@ -3,6 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next"
 import { api } from "../services/api"
 
 export type ITodoResponse = {
+  userId: number
   id: number
   title: string
   completed: boolean
